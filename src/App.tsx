@@ -9,6 +9,7 @@ import { DisclaimerFooter } from './components/DisclaimerFooter';
 import { NationsLeagueFixtures } from './components/NationsLeagueFixtures';
 import { GroupReviews } from './components/GroupReviews';
 import { LineFloatingButton } from './components/LineFloatingButton';
+import { FootballApiStatsWidget } from './components/FootballApiStatsWidget';
 import { TODAY_ARCHIVE } from './data/picksData';
 import { Check, Share2, Flame, Award, ChevronUp } from 'lucide-react';
 
@@ -49,7 +50,7 @@ export default function App() {
   };
 
   const handleShare = () => {
-    const shareText = `⚽ แนวทางน้าหงส์ ประจำวันที่ 1 ตุลาคม 2569\nคืนนี้น้าหงส์ไปสามตัว ได้แก่ นอร์เวย์, ออสเตรีย, เนเธอร์แลนด์ จัดเต็มบทวิเคราะห์ 5 ดาว คลิกอ่านได้ที่: ${window.location.href}`;
+    const shareText = `⚽ แนวทางน้าหงส์ ประจำวันที่ 1 ตุลาคม 2569\nคืนนี้น้าหงส์ไปสามตัว ได้แก่ นอร์เวย์, เยอรมนี, อาเซอร์ไบจาน จัดเต็มบทวิเคราะห์ 5 ดาว คลิกอ่านได้ที่: ${window.location.href}`;
 
     if (navigator.share) {
       navigator
@@ -179,6 +180,9 @@ export default function App() {
             ))}
           </div>
         </section>
+
+        {/* SECTION: Football API Stats & Goal / Win Rate Analytics */}
+        <FootballApiStatsWidget picks={TODAY_ARCHIVE.threePicks} />
 
         {/* SECTION: VIP Group Reviews & Past Performances */}
         <section id="group-reviews" className="pt-4">

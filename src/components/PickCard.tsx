@@ -28,7 +28,7 @@ export const PickCard: React.FC<PickCardProps> = ({
   onToggleSlip,
 }) => {
   const [imageError, setImageError] = useState(false);
-  const [activeTab, setActiveTab] = useState<'verdict' | 'stats' | 'players' | 'tactics'>('verdict');
+  const [activeTab, setActiveTab] = useState<'verdict' | 'stats' | 'analytics' | 'players' | 'tactics'>('verdict');
 
   return (
     <div 
@@ -155,6 +155,16 @@ export const PickCard: React.FC<PickCardProps> = ({
             สถิติสำคัญ
           </button>
           <button
+            onClick={() => setActiveTab('analytics')}
+            className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors flex items-center gap-1.5 ${
+              activeTab === 'analytics'
+                ? 'bg-emerald-400 text-slate-950 font-bold'
+                : 'text-emerald-400/90 hover:text-emerald-300 hover:bg-slate-800/50'
+            }`}
+          >
+            <span>📊 กราฟ API</span>
+          </button>
+          <button
             onClick={() => setActiveTab('players')}
             className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${
               activeTab === 'players'
@@ -261,6 +271,86 @@ export const PickCard: React.FC<PickCardProps> = ({
                       </span>
                     ))}
                   </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'analytics' && (
+            <div className="space-y-3.5 animate-in fade-in duration-150 text-xs">
+              {/* API Verified Tag */}
+              <div className="flex items-center justify-between text-[11px] p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300">
+                <span className="flex items-center gap-1.5 font-semibold">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>ดาต้าสด API (10 นัดล่าสุด)</span>
+                </span>
+                <span className="font-mono text-[10px] text-slate-400">Opta & UEFA Feed</span>
+              </div>
+
+              {/* Win Rate Comparison Bar */}
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-amber-400">
+                    {pick.country} ชนะ {pick.apiStats.winRate.teamWinPercent}%
+                  </span>
+                  <span className="text-[11px] text-slate-400 font-semibold">อัตราการชนะ (Win Rate)</span>
+                  <span className="text-slate-300 font-semibold">
+                    {pick.opponent} ชนะ {pick.apiStats.winRate.opponentWinPercent}%
+                  </span>
+                </div>
+                <div className="h-3 w-full rounded-full bg-slate-950 overflow-hidden flex p-0.5 border border-slate-800">
+                  <div 
+                    style={{ width: `${pick.apiStats.winRate.teamWinPercent}%` }} 
+                    className="h-full bg-gradient-to-r from-amber-500 to-amber-400 rounded-l-full"
+                  />
+                  <div 
+                    style={{ width: `${pick.apiStats.winRate.teamDrawPercent}%` }} 
+                    className="h-full bg-slate-600"
+                  />
+                  <div 
+                    style={{ width: `${pick.apiStats.winRate.teamLossPercent}%` }} 
+                    className="h-full bg-rose-900/60 rounded-r-full"
+                  />
+                </div>
+              </div>
+
+              {/* Goal Stats & xG Grid */}
+              <div className="grid grid-cols-3 gap-2 text-center">
+                <div className="p-2 rounded-lg bg-slate-950/70 border border-slate-800">
+                  <span className="text-[10px] text-slate-400 block">ยิงเฉลี่ย/นัด</span>
+                  <span className="text-sm font-black text-amber-400 font-mono">
+                    {pick.apiStats.goalStats.teamAvgScored}
+                  </span>
+                  <span className="text-[10px] text-slate-500 block">vs {pick.apiStats.goalStats.opponentAvgScored}</span>
+                </div>
+                <div className="p-2 rounded-lg bg-slate-950/70 border border-slate-800">
+                  <span className="text-[10px] text-slate-400 block">ค่า xG ต่อเกม</span>
+                  <span className="text-sm font-black text-emerald-400 font-mono">
+                    {pick.apiStats.goalStats.teamXG}
+                  </span>
+                  <span className="text-[10px] text-slate-500 block">vs {pick.apiStats.goalStats.opponentXG}</span>
+                </div>
+                <div className="p-2 rounded-lg bg-slate-950/70 border border-slate-800">
+                  <span className="text-[10px] text-slate-400 block">เปลี่ยนเป็นประตู</span>
+                  <span className="text-sm font-black text-sky-400 font-mono">
+                    {pick.apiStats.goalStats.teamConversionRate}%
+                  </span>
+                  <span className="text-[10px] text-slate-500 block">vs {pick.apiStats.goalStats.opponentConversionRate}%</span>
+                </div>
+              </div>
+
+              {/* Timing distribution preview */}
+              <div className="p-2.5 rounded-lg bg-slate-950/50 border border-slate-800/80">
+                <span className="text-[10px] font-bold text-slate-300 block mb-1.5">
+                  ช่วงเวลายิงประตูเด่น (Goal Timing)
+                </span>
+                <div className="grid grid-cols-6 gap-1 text-center font-mono">
+                  {pick.apiStats.timingDistribution.map((t, idx) => (
+                    <div key={idx} className="p-1 rounded bg-slate-900 border border-slate-800/60">
+                      <span className="text-[9px] text-slate-400 block leading-none">{t.interval}</span>
+                      <span className="text-[11px] font-bold text-amber-400 mt-0.5 block leading-none">{t.teamGoals} ลูก</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

@@ -39,6 +39,10 @@ export const Header: React.FC<HeaderProps> = ({ onShare, saved, onToggleSave }) 
           <a href="#three-picks" className="hover:text-amber-400 transition-colors">
             3 ตัวเน้นคืนนี้
           </a>
+          <a href="#api-stats-section" className="hover:text-amber-400 transition-colors flex items-center gap-1 text-emerald-400 font-semibold">
+            <span>📊</span>
+            <span>กราฟสถิติ API</span>
+          </a>
           <a href="#group-reviews" className="hover:text-amber-400 transition-colors text-amber-300 font-semibold flex items-center gap-1">
             <span>🔥</span>
             <span>รีวิวผลงานกลุ่ม</span>
