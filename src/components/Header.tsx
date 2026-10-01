@@ -1,5 +1,6 @@
 import React from 'react';
 import { Share2, Bookmark, Check } from 'lucide-react';
+import uncleHongAvatar from '../assets/images/uncle_hong_identity_avatar_1790832236925.jpg';
 
 interface HeaderProps {
   onShare: () => void;
@@ -11,13 +12,23 @@ export const Header: React.FC<HeaderProps> = ({ onShare, saved, onToggleSave }) 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Zone 1: Single text element wordmark */}
+        {/* Zone 1: Brand wordmark with Uncle Hong avatar */}
         <a 
           href="#top" 
-          className="text-lg font-bold tracking-tight text-white hover:text-amber-400 transition-colors flex items-center gap-2"
+          className="text-lg font-bold tracking-tight text-white hover:text-amber-400 transition-colors flex items-center gap-2.5"
         >
-          <span className="text-xl">⚽</span>
-          <span>แนวทางน้าหงส์</span>
+          <img
+            src={uncleHongAvatar}
+            alt="น้าหงส์"
+            referrerPolicy="no-referrer"
+            className="w-9 h-9 rounded-xl object-cover border border-amber-400/60 shadow-md ring-1 ring-slate-800"
+          />
+          <div className="flex flex-col">
+            <span className="leading-tight font-extrabold">แนวทางน้าหงส์</span>
+            <span className="text-[10px] text-amber-400 font-semibold tracking-wider uppercase leading-none">
+              วิเคราะห์บอลตัวจริง
+            </span>
+          </div>
         </a>
 
         {/* Zone 2: 4-6 clean text navigation links */}

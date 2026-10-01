@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { DayArchive } from '../data/picksData';
 import { ShieldCheck, Flame, ChevronDown, Sparkles } from 'lucide-react';
+import uncleHongAvatar from '../assets/images/uncle_hong_identity_avatar_1790832236925.jpg';
+import uncleHongBanner from '../assets/images/uncle_hong_message_banner_1790832140772.jpg';
 
 interface HeroOverviewProps {
   archive: DayArchive;
@@ -9,6 +11,7 @@ interface HeroOverviewProps {
 
 export const HeroOverview: React.FC<HeroOverviewProps> = ({ archive, onScrollToPick }) => {
   const [imageError, setImageError] = useState(false);
+  const [bannerError, setBannerError] = useState(false);
 
   return (
     <section id="top" className="relative pt-6 pb-10">
@@ -37,48 +40,76 @@ export const HeroOverview: React.FC<HeroOverviewProps> = ({ archive, onScrollToP
             แนวทางประจำวันที่ <span className="text-amber-400">1 ตุลาคม 2569</span>
           </h1>
 
-          {/* Uncle Hong's Exact Words */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-slate-900 border border-slate-800 relative">
-            <div className="flex items-start gap-4">
-              {/* Uncle Hong Avatar */}
-              <div className="relative shrink-0">
+          {/* Uncle Hong's Exact Words & Persona Graphic */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-slate-900 border border-slate-800 relative shadow-xl overflow-hidden">
+            {/* Subtle brand glow behind Uncle Hong card */}
+            <div className="absolute -top-12 -right-12 w-48 h-48 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
+
+            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-5 relative z-10">
+              {/* Uncle Hong Avatar Profile Image */}
+              <div className="relative shrink-0 self-center sm:self-start">
                 {!imageError ? (
                   <img
-                    src="/src/assets/images/hong_analyst_portrait_1790821718292.jpg"
-                    alt="น้าหงส์ นักวิเคราะห์บอล"
+                    src={uncleHongAvatar}
+                    alt="ตัวตนของน้าหงส์ - นักวิเคราะห์ฟุตบอลตัวจริง"
                     referrerPolicy="no-referrer"
                     onError={() => setImageError(true)}
-                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-amber-400/40 shadow-lg"
+                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover object-center border-2 border-amber-400/60 shadow-xl shadow-amber-950/40 ring-2 ring-slate-800"
                   />
                 ) : (
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-amber-500/20 border-2 border-amber-400/40 flex items-center justify-center text-2xl">
-                    🧔‍♂️
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-amber-500/20 border-2 border-amber-400/60 flex items-center justify-center text-3xl">
+                    ⚽
                   </div>
                 )}
-                <span className="absolute -bottom-1 -right-1 px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-400 text-slate-950 shadow">
+                <span className="absolute -bottom-1.5 -right-1.5 px-2 py-0.5 rounded-md text-[11px] font-black bg-amber-400 text-slate-950 shadow-md border border-amber-300">
                   น้าหงส์
                 </span>
               </div>
 
-              <div className="space-y-2 flex-1">
+              <div className="space-y-2.5 flex-1">
                 <div className="flex items-center gap-2">
-                  <h2 className="text-lg font-bold text-white">
+                  <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-400 animate-pulse" />
+                    ข้อความล่าสุด
+                  </span>
+                  <h2 className="text-lg sm:text-xl font-bold text-white">
                     สารจากน้าหงส์ ถึงคอบอลทุกท่าน
                   </h2>
                 </div>
-                <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
-                  &ldquo;<span className="text-amber-300 font-semibold">วันนี้น้าหงส์ ไปสามตัว ได้แก่ นอร์เวย์ เยอรมนี อาเซอร์ไบจาน นะครับ</span>&rdquo;
-                </p>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  {archive.titleNote}
-                </p>
 
-                <div className="pt-2 flex flex-wrap items-center gap-2">
+                <div className="p-3 rounded-xl bg-slate-950/70 border border-slate-800/80">
+                  <p className="text-sm sm:text-base text-slate-100 leading-relaxed font-medium">
+                    &ldquo;<span className="text-amber-300 font-bold">วันนี้น้าหงส์ ไปสามตัว ได้แก่ นอร์เวย์ เยอรมนี อาเซอร์ไบจาน นะครับ</span>&rdquo;
+                  </p>
+                  <p className="text-xs text-slate-400 leading-relaxed mt-1.5">
+                    {archive.titleNote}
+                  </p>
+                </div>
+
+                {/* Banner Graphic of Uncle Hong */}
+                {!bannerError && (
+                  <div className="mt-3 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 group relative">
+                    <img 
+                      src={uncleHongBanner} 
+                      alt="น้าหงส์ วิเคราะห์ข้อมูลก่อนเกม ลงให้ทุกวัน"
+                      referrerPolicy="no-referrer"
+                      onError={() => setBannerError(true)}
+                      className="w-full max-h-48 sm:max-h-56 object-cover object-center group-hover:scale-[1.02] transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-2.5">
+                      <span className="text-[11px] font-semibold text-slate-300 bg-slate-900/80 px-2 py-0.5 rounded backdrop-blur-sm border border-slate-700/50">
+                        ⚡ วิเคราะห์ข้อมูลก่อนเกม ลงให้ทุกวัน โดยน้าหงส์
+                      </span>
+                    </div>
+                  </div>
+                )}
+
+                <div className="pt-1 flex flex-wrap items-center gap-2">
                   <a
                     href="https://lin.ee/OLW4xO3"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#06C755] hover:bg-[#05b34c] text-white text-xs font-bold shadow-md shadow-[#06C755]/20 transition-all active:scale-95"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#06C755] hover:bg-[#05b34c] text-white text-xs sm:text-sm font-bold shadow-lg shadow-[#06C755]/25 transition-all active:scale-95"
                   >
                     <span>💬</span>
                     <span>ขอรับแนวทางสด & พูดคุยทาง LINE: @nn25</span>

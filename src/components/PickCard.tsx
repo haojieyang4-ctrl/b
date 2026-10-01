@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TeamMatch } from '../data/picksData';
+import uncleHongAvatar from '../assets/images/uncle_hong_identity_avatar_1790832236925.jpg';
 import { 
   Clock, 
   MapPin, 
@@ -179,9 +180,21 @@ export const PickCard: React.FC<PickCardProps> = ({
         <div className="min-h-[140px]">
           {activeTab === 'verdict' && (
             <div className="space-y-3 animate-in fade-in duration-150">
-              <div className="text-sm text-slate-300 leading-relaxed font-light">
-                <span className="text-amber-400 font-medium">💬 น้าหงส์ฟันธง: </span>
-                {pick.uncleHongVerdict}
+              <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 flex items-start gap-3">
+                <img
+                  src={uncleHongAvatar}
+                  alt="น้าหงส์"
+                  referrerPolicy="no-referrer"
+                  className="w-10 h-10 rounded-xl object-cover border border-amber-400/60 shadow-md shrink-0"
+                />
+                <div className="space-y-1">
+                  <div className="text-xs font-bold text-amber-400 flex items-center gap-1.5">
+                    <span>น้าหงส์ฟันธง:</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                    {pick.uncleHongVerdict}
+                  </p>
+                </div>
               </div>
               <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-800/80">
                 <div className="text-xs text-slate-400 flex items-center gap-1.5">

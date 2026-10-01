@@ -85,7 +85,7 @@ export const TODAY_ARCHIVE: DayArchive = {
         opponent: ['L', 'D', 'W', 'L', 'D']
       },
       h2hSummary: "พบกันล่าสุด นอร์เวย์ ชนะ 2 เสมอ 1 เวลส์ไม่ชนะนอร์เวย์มา 3 เกมติด",
-      actionImage: "/src/assets/images/norway_match_action_1790821731890.jpg",
+      actionImage: "/images/norway_match_action_1790821731890.jpg",
       tacticalHighlights: [
         "โอเดการ์ด จ่ายบอลทะลุช่องข้ามไลน์กองหลังเวลส์ให้ฮาแลนด์ใช้สปีดวิ่งฉีก",
         "การขึ้นเกมริมเส้นด้านซ้ายของ อันโตนิโอ นูซา",
@@ -127,7 +127,7 @@ export const TODAY_ARCHIVE: DayArchive = {
         opponent: ['L', 'D', 'L', 'W', 'L']
       },
       h2hSummary: "พบกัน 3 นัดหลังสุด เยอรมนี ชนะ 2 เสมอ 1 เซอร์เบียยังไม่เคยชนะในถิ่นเยอรมัน",
-      actionImage: "/src/assets/images/austria_match_action_1790821743527.jpg",
+      actionImage: "/images/austria_match_action_1790821743527.jpg",
       tacticalHighlights: [
         "การสลับตำแหน่งระหว่าง เวียร์ตซ์ และ มูเซียล่า สร้างความสับสนให้เซ็นเตอร์แบ็กเซอร์เบีย",
         "เกมเพรสซิ่งแดนหน้าบีบให้แนวรับคู่แข่งจ่ายบอลเสียหน้าเขตโทษ",
@@ -169,7 +169,7 @@ export const TODAY_ARCHIVE: DayArchive = {
         opponent: ['L', 'L', 'L', 'L', 'L']
       },
       h2hSummary: "พบกัน 2 นัด อาเซอร์ไบจาน ชนะรวด ไม่เสียประตูแม้แต่ลูกเดียว",
-      actionImage: "/src/assets/images/netherlands_match_action_1790821755828.jpg",
+      actionImage: "/images/netherlands_match_action_1790821755828.jpg",
       tacticalHighlights: [
         "การยิงไกลและลูกตั้งเตะอันตรายของ เอมิน มะห์มูดอฟ",
         "การเจาะทะลุตามช่องแนวลึกโดยใช้ความเร็วของ มาฮีร์ เอมเรลี",

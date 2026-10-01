@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import uncleHongAvatar from '../assets/images/uncle_hong_identity_avatar_1790832236925.jpg';
 import { 
   Flame, 
   Users, 
@@ -136,9 +137,17 @@ export const GroupReviews: React.FC = () => {
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left: Persuasive Copywriting from User Request */}
           <div className="lg:col-span-7 space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-bold tracking-wide">
-              <Flame className="w-4 h-4 fill-amber-400 text-amber-400" />
-              <span>คอบอลตัวจริง ห้ามพลาด! เข้ากลุ่มน้าหงส์คืนนี้</span>
+            <div className="flex items-center gap-3">
+              <img
+                src={uncleHongAvatar}
+                alt="น้าหงส์"
+                referrerPolicy="no-referrer"
+                className="w-12 h-12 rounded-2xl object-cover border-2 border-amber-400/70 shadow-lg shadow-amber-950/40"
+              />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-bold tracking-wide">
+                <Flame className="w-4 h-4 fill-amber-400 text-amber-400" />
+                <span>คอบอลตัวจริง ห้ามพลาด! เข้ากลุ่มน้าหงส์คืนนี้</span>
+              </div>
             </div>
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-snug">

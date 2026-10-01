@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShieldAlert } from 'lucide-react';
+import uncleHongAvatar from '../assets/images/uncle_hong_identity_avatar_1790832236925.jpg';
 
 export const DisclaimerFooter: React.FC = () => {
   return (
@@ -9,18 +10,21 @@ export const DisclaimerFooter: React.FC = () => {
         {/* LINE Contact Official Box */}
         <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-950/30 via-slate-900 to-slate-900 border border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-2xl bg-[#06C755] text-white flex items-center justify-center font-black text-xl shrink-0 shadow-lg shadow-[#06C755]/20">
-              💬
-            </div>
+            <img
+              src={uncleHongAvatar}
+              alt="น้าหงส์"
+              referrerPolicy="no-referrer"
+              className="w-12 h-12 rounded-2xl object-cover border-2 border-[#06C755] shrink-0 shadow-lg shadow-[#06C755]/20 ring-1 ring-slate-800"
+            />
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-bold text-white text-sm sm:text-base">ช่องทางติดต่อทางการ: LINE Official</span>
+                <span className="font-bold text-white text-sm sm:text-base">ช่องทางติดต่อทางการ: LINE น้าหงส์</span>
                 <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold">
                   @nn25
                 </span>
               </div>
               <p className="text-slate-400 text-[11px] sm:text-xs mt-0.5">
-                ติดต่อสอบถามข้อมูล แลกเปลี่ยนทรรศนะฟุตบอล หรือขอรับแนวทางทีเด็ดสดรายวัน
+                ติดต่อสอบถามข้อมูล แลกเปลี่ยนทรรศนะฟุตบอล หรือขอรับแนวทางทีเด็ดสดรายวันกับน้าหงส์โดยตรง
               </p>
             </div>
           </div>
