@@ -184,10 +184,10 @@ export const HeroOverview: React.FC<HeroOverviewProps> = ({ archive, onScrollToP
                     <span>🇳🇴</span>
                     <span>นอร์เวย์ (เยือน เวลส์)</span>
                   </span>
-                  <span className="text-[11px] font-mono text-amber-400">ต่อ 0.5/1</span>
+                  <span className="text-[11px] font-mono text-amber-400">ต่อ 1-1.5 (น้ำ 0.96)</span>
                 </div>
                 <p className="text-slate-300 font-light leading-relaxed">
-                  ฮาแลนด์ x โอเดการ์ด กำลังร้อนแรง เวลส์เกมรับยวบ ฟันธงต่อนอร์เวย์ เฮชัวร์!
+                  เรตไหลขึ้นเป็นลูกควบลูกครึ่ง ฮาแลนด์ x โอเดการ์ด ขี่เวลส์มิดด้าม ฟันธงต่อนอร์เวย์ เฮชัวร์!
                 </p>
               </div>
 
@@ -197,10 +197,10 @@ export const HeroOverview: React.FC<HeroOverviewProps> = ({ archive, onScrollToP
                     <span>🇩🇪</span>
                     <span>เยอรมนี (รับ เซอร์เบีย)</span>
                   </span>
-                  <span className="text-[11px] font-mono text-amber-400">ต่อ 1.5</span>
+                  <span className="text-[11px] font-mono text-amber-400">ต่อ 2.0 (น้ำ 0.90)</span>
                 </div>
                 <p className="text-slate-300 font-light leading-relaxed">
-                  อินทรีเหล็กในบ้านดุดัน มูเซียล่า & เวียร์ตซ์ จัดจ้าน ฟันธงต่อเยอรมัน ขยันยิง!
+                  เรตไหลเปิดต่อถึงสองลูก มูเซียล่า & เวียร์ตซ์ จัดจ้าน เซอร์เบียนอกบ้านเปื่อยยุบ ฟันธงต่อเยอรมัน ขยันยิง!
                 </p>
               </div>
 
